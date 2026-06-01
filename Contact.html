@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CONTACT US 〡 The Love Club</title>
+
+    <link rel="stylesheet" href="Nav.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap" rel="stylesheet">
+
+    <style>
+        /* BASE STYLES */
+        html, body {
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            background-color: #fce2e2;
+            overflow: hidden;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* BUTTONS */
+        .contact-btn {
+            text-decoration: none !important;
+            border: 1.5px solid #000000;
+            padding: 10px 26px;
+            border-radius: 25px;
+            font-size: 18px !important;
+            font-weight: normal;
+            line-height: 1;
+            margin-left: 10px;
+            display: inline-block;
+            color: #000000;
+        }
+
+        .contact-btn:hover {
+            text-decoration: none !important;
+            opacity: 1 !important;
+        }
+
+        /* CONTACT CONTAINER */
+        .contact-container {
+            max-width: 1150px;
+            margin: auto auto;
+            padding: 0 20px;
+            text-align: center;
+            box-sizing: border-box;
+            width: 100%;
+        }
+
+        /* TITLE SECTION */
+        .title-group {
+            display: inline-block;
+            margin-bottom: 35px;
+        }
+
+        .contact-title {
+            font-family: 'Peace Sans', sans-serif;
+            font-size: 3.8rem;
+            color: #8B5A44;
+            margin: 0;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            line-height: 1.1;
+        }
+
+        .title-underline {
+            width: 70%;
+            height: 6px;
+            background-color: #e26d7d;
+            margin: 8px auto 0 auto;
+            border-radius: 50%;
+            opacity: 0.7;
+        }
+
+        /* POSTCARD LAYOUT */
+        .postcard {
+            background-color: #FFFDF9;
+            border: 2px dashed #8B5A44;
+            border-radius: 4px;
+            width: 100%;
+            max-width: 960px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            position: relative;
+            box-shadow: 0 4px 20px rgba(139, 90, 68, 0.15);
+        }
+
+        .postcard::after {
+            content: "";
+            position: absolute;
+            top: 5%;
+            bottom: 5%;
+            left: 50%;
+            width: 1.5px;
+            background-color: #8B5A44;
+        }
+
+        .postcard-left {
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            text-align: left;
+        }
+
+        .stamps-container {
+            position: relative;
+            height: 110px;
+            margin-bottom: 10px;
+        }
+
+        .stamp-img {
+            height: 105px;
+            object-fit: contain;
+            transform: rotate(-5deg);
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: 1;
+        }
+
+        .stamp-ribbon {
+            height: 100px;
+            object-fit: contain;
+            transform: rotate(8deg);
+            position: absolute;
+            left: 75px;
+            top: 5px;
+            z-index: 2;
+        }
+
+        .handwritten-message-box {
+            margin: 30px 0;
+            position: relative;
+        }
+
+        .line-decor {
+            border-bottom: 1.5px solid #8B5A44;
+            margin-bottom: 32px;
+            height: 12px;
+        }
+
+        .handwritten-text {
+            font-family: 'Caveat', cursive;
+            font-size: 3.6rem;
+            color: #e26d7d;
+            line-height: 1.05;
+            position: absolute;
+            top: -20px;
+            left: 5px;
+            width: 100%;
+            pointer-events: none;
+            transform: rotate(-2deg);
+        }
+
+        .postcard-email-footer {
+            font-family: monospace;
+            font-size: 0.85rem;
+            color: #8B5A44;
+            text-align: center;
+            margin-top: auto;
+        }
+
+        .postcard-right {
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: left;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            font-family: monospace;
+            font-size: 0.9rem;
+            font-weight: bold;
+            color: #8B5A44;
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            box-sizing: border-box;
+            background-color: #f2cac2;
+            border: 1.5px solid #8B5A44;
+            border-radius: 12px;
+            padding: 14px;
+            font-family: monospace;
+            font-size: 0.95rem;
+            color: #8B5A44;
+            outline: none;
+        }
+
+        .form-group textarea {
+            height: 160px;
+            resize: none;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(139, 90, 68, 0.6);
+        }
+
+        .form-group input:-webkit-autofill,
+        .form-group input:-webkit-autofill:hover,
+        .form-group input:-webkit-autofill:focus {
+            -webkit-text-fill-color: #8B5A44 !important;
+            box-shadow: 0 0 0px 1000px #f2cac2 inset !important;
+            transition: background-color 5000s ease-in-out 0s;
+        }
+
+        .submit-btn-container {
+            text-align: center;
+            margin-top: 5px;
+        }
+
+        .send-btn {
+            background-color: #9db9d6; 
+            border: 1.5px solid #000000;
+            border-radius: 20px;
+            padding: 8px 45px;
+            font-family: monospace;
+            font-size: 1rem;
+            color: #ffffff;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.2s ease, transform 0.1s ease;
+        }
+
+        .send-btn:hover {
+            background-color: #85a5c5;
+        }
+
+        .send-btn:active {
+            transform: scale(0.98);
+        }
+
+
+        @media (max-width: 1024px) {
+            .contact-title { font-size: 3.2rem; }
+            .postcard { max-width: 800px; }
+            .handwritten-text { font-size: 3rem; }
+        }
+
+        @media (max-width: 768px) {
+            html, body { height: auto; overflow: auto; }
+            .contact-container { padding: 0 24px 40px; }
+            .contact-title { font-size: 2.6rem; }
+            .title-group { margin-bottom: 24px; }
+            .postcard {
+                grid-template-columns: 1fr;
+                max-width: 520px;
+            }
+            /* hide the vertical divider line on single-column */
+            .postcard::after { display: none; }
+            .postcard-left {
+                padding: 30px 30px 20px;
+                border-bottom: 1.5px solid #8B5A44;
+            }
+            .postcard-right { padding: 28px 30px 36px; }
+            .handwritten-text { font-size: 2.8rem; }
+            .form-group textarea { height: 130px; }
+        }
+
+        @media (max-width: 600px) {
+            .contact-container { padding: 0 16px 32px; }
+            .contact-title { font-size: 2rem; letter-spacing: 1px; }
+            .title-underline { height: 5px; margin-top: 6px; }
+            .title-group { margin-bottom: 18px; }
+            .postcard { border-radius: 4px; }
+            .postcard-left { padding: 24px 20px 16px; }
+            .postcard-right { padding: 20px 20px 28px; }
+            .stamps-container { height: 85px; margin-bottom: 6px; }
+            .stamp-img { height: 82px; }
+            .stamp-ribbon { height: 78px; left: 60px; }
+            .handwritten-text { font-size: 2.3rem; top: -16px; }
+            .line-decor { margin-bottom: 26px; }
+            .form-group { margin-bottom: 18px; }
+            .form-group label { font-size: 0.82rem; }
+            .form-group input,
+            .form-group textarea { font-size: 0.88rem; padding: 11px; }
+            .form-group textarea { height: 110px; }
+            .send-btn { font-size: 0.9rem; padding: 8px 36px; }
+            .postcard-email-footer { font-size: 0.78rem; }
+        }
+
+        @media (max-width: 430px) {
+            .contact-title { font-size: 1.7rem; }
+            .handwritten-text { font-size: 1.9rem; }
+            .stamp-img { height: 68px; }
+            .stamp-ribbon { height: 64px; left: 50px; }
+            .stamps-container { height: 72px; }
+            .form-group textarea { height: 100px; }
+            .send-btn { width: 100%; padding: 10px 0; }
+        }
+
+        @media (max-width: 360px) {
+            .contact-title { font-size: 1.5rem; }
+            .handwritten-text { font-size: 1.6rem; }
+            .postcard-left { padding: 18px 14px 14px; }
+            .postcard-right { padding: 16px 14px 22px; }
+            .form-group input,
+            .form-group textarea { font-size: 0.82rem; padding: 10px; }
+        }
+            </style>
+        </head>
+        <body>
+            
+            <nav class="navbar">
+                <div class="nav-left">
+                    <a href="About.html">ABOUT</a>
+                    <a href="Archives.html">ARCHIVES</a>
+                    <a href="Registration.html">REGISTRATION</a>
+                </div>
+
+                <div class="nav-logo">
+                    <a href="About.html">The Love Club</a>
+                </div>
+
+                <div class="nav-right">
+                    <a href="Faqs.html">FAQs</a>
+                    <div class="nav-socials">
+                        <a href="https://www.instagram.com/theloveclubph__" target="_blank" class="icon-link">
+                            <img src="ig.png" alt="Instagram">
+                        </a>
+                        <a href="https://www.tiktok.com/@theloveclubph__" target="_blank" class="icon-link">
+                            <img src="tiktok.png" alt="TikTok" class="tiktok-icon">
+                        </a>
+                    </div>
+                    <a href="Contact.html" class="contact-btn active-link">CONTACT</a>
+                </div>
+            </nav>
+
+            <main class="contact-container">
+                <div class="title-group">
+                    <h1 class="contact-title">Send Us A Postcard</h1>
+                    <div class="title-underline"></div>
+                </div>
+
+                <div class="postcard">
+                    <div class="postcard-left">
+                        <div class="stamps-container">
+                            <img src="ph-stamp.png" alt="PH Stamp" class="stamp-img">
+                            <img src="ribbon-stamp.png" alt="Ribbon Stamp" class="stamp-ribbon">
+                        </div>
+
+                        <div class="handwritten-message-box">
+                            <div class="line-decor"></div>
+                            <div class="line-decor"></div>
+                            <div class="line-decor"></div>
+                            <div class="line-decor"></div>
+                            <div class="handwritten-text">
+                                Don't hesitate,<br>Send us a message!
+                            </div>
+                        </div>
+
+                        <div class="postcard-email-footer">
+                            theloveclubph@gmail.com
+                        </div>
+                    </div>
+
+                    <div class="postcard-right">
+                        <form id="postcardForm">
+                            <div class="form-group">
+                                <label for="email">EMAIL ADDRESS :</label>
+                                <input type="email" id="email" maxlength="254" placeholder="example@gmail.com" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="message">MESSAGE: (Max. 300)</label>
+                                <textarea id="message" maxlength="300" placeholder="Type your message here..." required></textarea>
+                            </div>
+
+                            <div class="submit-btn-container">
+                                <button type="submit" class="send-btn">SEND</button>
+                            </div>
+
+                        </form>
+                    </div>
+
+                </div>
+            </main>
+
+            <script>
+                document.getElementById('postcardForm').addEventListener('submit', function(e) {
+                    e.preventDefault();
+
+                    const senderEmail = document.getElementById('email').value;
+                    const messageBody = document.getElementById('message').value;
+                    const targetInbox = "anezkatongol@gmail.com";
+                    const emailSubject = encodeURIComponent("New Postcard Message from The Love Club");
+                    const formattedBody = encodeURIComponent(
+                        `Sender Contact: ${senderEmail}\n\nMessage:\n"${messageBody}"`
+                    );
+                    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${targetInbox}&su=${emailSubject}&body=${formattedBody}`;
+                    window.open(gmailUrl, '_blank');
+                });
+            </script>
+
+</body>
+</html>

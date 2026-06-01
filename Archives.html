@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARCHIVES 〡 The Love Club</title>
+
+    <link rel="stylesheet" href="Nav.css">
+
+    <style>
+        body {
+            background-color: #fcfcfc;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15)), url('flowers-bg.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        /* ARCHIVE WRAPPER */
+        .archive-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 140px 0 240px 0; 
+            position: relative;
+            overflow: hidden; 
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        /* ALBUM ITEMS */
+        .album-container {
+            position: relative;
+            width: 250px; 
+            height: 250px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .folder-box {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+        }
+
+        .folder-box img {
+            width: 240px; 
+            height: auto;
+        }
+
+        .folder-box p {
+            font-family: monospace;
+            color: #ffffff;
+            margin-top: -10px; 
+            font-size: 15px;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+            position: relative;
+            z-index: 11;
+        }
+
+        /* POLAROID ANIMATION */
+        .pola {
+            position: absolute;
+            width: 190px; 
+            height: auto;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.3);
+            opacity: 0;
+            z-index: 5;
+            transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+            pointer-events: none;
+        }
+
+        .album-container:hover .pola {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        /* POLAROID POSITIONS */
+        .album-container:hover .pola-1 { transform: translate(-560px, -40px) rotate(-12deg) scale(1); }
+        .album-container:hover .pola-2 { transform: translate(-340px, -220px) rotate(8deg) scale(1); }
+        .album-container:hover .pola-3 { transform: translate(200px, -220px) rotate(-10deg) scale(1); }
+        .album-container:hover .pola-4 { transform: translate(420px, -40px) rotate(12deg) scale(1); }
+        .album-container:hover .pola-5 { transform: translate(220px, 90px) rotate(8deg) scale(1); }
+        .album-container:hover .pola-6 { transform: translate(-360px, 90px) rotate(-8deg) scale(1); }
+
+        /* GINGHAM TICKER */
+        .gingham-ticker {
+            width: 100%;
+            height: 55px;
+            background-image: url('gingham-bg.png');
+            background-repeat: repeat-x;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            border-bottom: 2px solid rgba(139, 90, 68, 0.15);
+            border-top: 2px solid rgba(139, 90, 68, 0.15);
+        }
+
+        .ticker-track {
+            white-space: nowrap;
+            display: flex;
+        }
+
+        .ticker-track span {
+            font-family: 'monospace';
+            color: #e5828d;
+            font-size: 22px;
+            letter-spacing: 1px;
+            padding-left: 20px;
+        }
+
+    
+        .traditions-section {
+            background-color: #f2ceca; 
+            width: 100%;
+            padding: 80px 5%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-sizing: border-box;
+        }
+
+        .traditions-header-container {
+            width: 100%;
+            max-width: 1200px;
+            text-align: left;
+            margin-bottom: 45px;
+        }
+
+        .traditions-main-heading {
+            font-family: 'Peace Sans', sans-serif;
+            color: #8B5A44;
+            font-size: 72px;
+            line-height: 1;
+            margin: 0 0 15px 0;
+        }
+
+        .traditions-subtext {
+            font-family: monospace;
+            color: #8B5A44;
+            font-size: 16px;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .traditions-cards-grid {
+            max-width: 1200px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .traditions-card {
+            background-color: #ffffff;
+            border: 1.5px solid #8B5A44;
+            border-radius: 24px;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            box-sizing: border-box;
+            box-shadow: 4px 4px 0px rgba(139, 90, 68, 0.15);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .traditions-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 6px 6px 0px rgba(139, 90, 68, 0.2);
+        }
+
+        .traditions-img-wrapper {
+            width: 100%;
+            margin-bottom: 20px;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid rgba(139, 90, 68, 0.2);
+        }
+
+        .traditions-card-img {
+            width: 100%;
+            display: block;
+            object-fit: cover;
+            aspect-ratio: 1 / 1; 
+        }
+
+        .traditions-card-title {
+            font-family: 'Peace Sans', sans-serif;
+            color: #8B5A44;
+            font-size: 20px;
+            margin: 0 0 10px 0;
+            line-height: 1.2;
+        }
+
+        .traditions-card-desc {
+            font-family: monospace;
+            color: #8B5A44;
+            font-size: 14px;
+            line-height: 1.5;
+            margin: 0;
+            padding: 0 5px;
+        }
+
+        
+        .upcoming-events-section {
+            background-color: #f2cac4;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-sizing: border-box;
+            position: relative;
+        }
+
+        .events-header {
+            width: 100%;
+            height: 180px; 
+            margin-bottom: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            background-image: url('stay-tuned-bg.png');
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+            box-sizing: border-box;
+            padding: 0 20px;
+        }
+
+        .events-header h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            color: white;
+            line-height: 1.2;
+            margin: 0;
+            font-family: 'Peace Sans', sans-serif;
+            text-transform: uppercase;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .bandaid-sticker {
+            position: absolute;
+            bottom: -150px;     
+            left: 2%;          
+            width: 320px;     
+            transform: rotate(-12deg);
+            z-index: 20;       
+            pointer-events: none; 
+        }
+
+        .monthly-reads {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 0 5%; 
+        }
+
+        .monthly-reads h2 {
+            color: #8b5a44;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin: 0 0 10px 0;
+            font-family: 'Peace Sans', sans-serif;
+        }
+
+        .monthly-reads p {
+            color: #8b5a44;
+            font-size: 1.1rem;
+            margin: 0;
+            font-family: monospace;
+        }
+
+        .books-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 30px;
+            width: 100%;
+            max-width: 1200px;
+            padding: 0 5% 80px 5%; 
+            box-sizing: border-box;
+        }
+
+        .book-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .book-cover {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            transition: transform 0.25s ease;
+        }
+
+        .book-item:hover .book-cover {
+            transform: translateY(-4px); 
+        }
+
+        .book-info h3 {
+            color: #8b5a44;
+            margin: 0 0 5px 0;
+            font-size: 1.1rem;
+            font-family: 'Peace Sans', sans-serif;
+            text-transform: uppercase;
+        }
+
+        .book-info p {
+            color: #8c8784;
+            font-size: 13px;
+            line-height: 1.4;
+            margin: 0;
+            font-family: monospace;
+        }
+
+        .book-info strong {
+            color: #8b5a44;
+        }
+
+        @media (max-width: 1024px) {
+            .archive-wrapper { padding: 100px 0 180px 0; }
+            .album-container { transform: scale(0.85); }
+            .traditions-main-heading { font-size: 56px; }
+            .traditions-cards-grid { grid-template-columns: repeat(2, 1fr); }
+            .bandaid-sticker { width: 260px; bottom: -50px; }
+            .books-grid { grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        }
+
+        @media (max-width: 900px) {
+            .books-grid { grid-template-columns: repeat(3, 1fr); }
+            .book-item { display: flex; } /* show all books */
+        }
+
+        @media (max-width: 768px) {
+            .archive-wrapper { padding: 90px 0 160px 0; }
+            .album-container { transform: scale(0.75); }
+            .traditions-main-heading { font-size: 44px; }
+            .traditions-subtext { font-size: 14px; }
+            .traditions-section { padding: 60px 4%; }
+            .traditions-cards-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+            .events-header { height: 150px; margin-bottom: 45px; }
+            .bandaid-sticker { width: 220px; bottom: -45px; }
+            .monthly-reads h2 { font-size: 2.2rem; }
+            .books-grid { grid-template-columns: repeat(3, 1fr); gap: 16px; }
+        }
+
+        @media (max-width: 600px) {
+            .archive-wrapper { padding: 80px 0 140px 0; }
+            .album-container { transform: scale(0.65); }
+            .gingham-ticker { height: 44px; }
+            .ticker-track span { font-size: 15px; }
+            .traditions-section { padding: 50px 4%; }
+            .traditions-main-heading { font-size: 36px; }
+            .traditions-cards-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+            .traditions-card-title { font-size: 17px; }
+            .traditions-card-desc { font-size: 12px; }
+            .events-header { height: 130px; margin-bottom: 40px; }
+            .bandaid-sticker { width: 180px; bottom: -35px; }
+            .monthly-reads h2 { font-size: 1.9rem; }
+            .monthly-reads p { font-size: 0.9rem; }
+            .books-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; padding: 0 4% 60px 4%; }
+            .book-info h3 { font-size: 0.85rem; }
+            .book-info p { font-size: 11px; }
+        }
+
+        @media (max-width: 430px) {
+            .archive-wrapper { padding: 70px 0 120px 0; }
+            .album-container { transform: scale(0.55); }
+            .traditions-main-heading { font-size: 30px; }
+            .traditions-cards-grid { grid-template-columns: 1fr; }
+            .bandaid-sticker { width: 140px; bottom: -28px; }
+            .monthly-reads h2 { font-size: 1.6rem; }
+            .books-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; padding: 0 4% 50px 4%; }
+        }
+
+        @media (max-width: 360px) {
+            .archive-wrapper { padding: 60px 0 100px 0; }
+            .album-container { transform: scale(0.48); }
+            .traditions-main-heading { font-size: 26px; }
+            .traditions-section { padding: 40px 4%; }
+            .gingham-ticker { height: 38px; }
+            .ticker-track span { font-size: 12px; }
+            .bandaid-sticker { width: 120px; bottom: -24px; }
+            .books-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+            .book-info h3 { font-size: 0.75rem; }
+            .book-info p { font-size: 10px; }
+        }
+            </style>
+        </head>
+        <body>
+            
+            <nav class="navbar">
+                <div class="nav-left">
+                    <a href="About.html">ABOUT</a>
+                    <a href="Archives.html" class="active-link">ARCHIVES</a>
+                    <a href="Registration.html">REGISTRATION</a>
+                </div>
+
+                <div class="nav-logo">
+                    <a href="About.html">The Love Club</a>
+                </div>
+
+                <div class="nav-right">
+                    <a href="Faqs.html">FAQs</a>
+                    <div class="nav-socials">
+                        <a href="https://www.instagram.com/theloveclubph__" target="_blank" class="icon-link">
+                            <img src="ig.png" alt="Instagram">
+                        </a>
+                        <a href="https://www.tiktok.com/@theloveclubph__" target="_blank" class="icon-link">
+                            <img src="tiktok.png" alt="TikTok" class="tiktok-icon">
+                        </a>
+                    </div>
+                    <a href="Contact.html" class="contact-btn">CONTACT</a>
+                </div>
+            </nav>
+
+            <div class="archive-wrapper">
+                <div class="album-container">
+                    <div class="folder-box">
+                        <img src="pink-folder.png" alt="Folder">
+                        <p>theloveclub_album</p>
+                    </div>
+
+                    <img src="pola1.png" alt="Pola 1" class="pola pola-1">
+                    <img src="pola2.png" alt="Pola 2" class="pola pola-2">
+                    <img src="pola3.png" alt="Pola 3" class="pola pola-3">
+                    <img src="pola4.png" alt="Pola 4" class="pola pola-4">
+                    <img src="pola5.png" alt="Pola 5" class="pola pola-5">
+                    <img src="pola6.png" alt="Pola 6" class="pola pola-6">
+                </div>
+            </div>
+
+            <div class="gingham-ticker">
+                <div class="ticker-track">
+                    <span>The Love Club ❤︎⁠ The Love Club ❤︎⁠ The Love Club ❤︎⁠ The Love Club ❤︎⁠ The Love Club ❤︎⁠ The Love Club ❤︎⁠ The Love Club ❤︎⁠ The Love Club ❤︎⁠ The Love Club ❤︎⁠ The Love Club ❤︎⁠</span>
+                </div>
+            </div>
+
+            <section class="traditions-section">
+                <div class="traditions-header-container">
+                    <h2 class="traditions-main-heading">Our Traditions</h2>
+                    <p class="traditions-subtext">
+                        At TLC, we believe that the best memories are made when we're together.<br>
+                        Here is a glimpse of the traditions that turn our community into a family:
+                    </p>
+                </div>
+
+                <div class="traditions-cards-grid">
+                    <div class="traditions-card">
+                        <div class="traditions-img-wrapper">
+                            <img src="brunch.png" alt="Brunch and Books" class="traditions-card-img">
+                        </div>
+                        <h3 class="traditions-card-title">Brunch and Books</h3>
+                        <p class="traditions-card-desc">A monthly morning gathering to discuss our book of the month.</p>
+                    </div>
+
+                    <div class="traditions-card">
+                        <div class="traditions-img-wrapper">
+                            <img src="picnic.png" alt="Field Day Picnics" class="traditions-card-img">
+                        </div>
+                        <h3 class="traditions-card-title">Field Day Picnics</h3>
+                        <p class="traditions-card-desc">A quiet time for silent reading in nature.</p>
+                    </div>
+
+                    <div class="traditions-card">
+                        <div class="traditions-img-wrapper">
+                            <img src="craft.png" alt="Craft-Making" class="traditions-card-img">
+                        </div>
+                        <h3 class="traditions-card-title">Craft-Making</h3>
+                        <p class="traditions-card-desc">Creative sessions where we make book-inspired projects.</p>
+                    </div>
+
+                    <div class="traditions-card">
+                        <div class="traditions-img-wrapper">
+                            <img src="workshop.png" alt="Hands-on Workshops" class="traditions-card-img">
+                        </div>
+                        <h3 class="traditions-card-title">Hands-on Workshops</h3>
+                        <p class="traditions-card-desc">A workshop series centered on aesthetic skills we explore together.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="upcoming-events-section">
+                <div class="events-header">
+                    <h1>STAY TUNED FOR <br>UPCOMING EVENTS</h1>
+                    <img src="bandaid-sticker.png" alt="bandaid" class="bandaid-sticker">
+                </div>
+
+                <div class="monthly-reads">
+                    <h2>Our Monthly Reads</h2>
+                    <p><i>A curated collection of books so far, chosen by the TLC community.</i></p>
+                </div>
+
+                <div class="books-grid">
+                    
+                    <div class="book-item">
+                        <img src="funny story.png" alt="Funny Story" class="book-cover">
+                        <div class="book-info">
+                            <h3>JAN</h3>
+                            <p><strong>FUNNY STORY</strong><br>by Emily Henry</p>
+                        </div>
+                    </div>
+
+                    <div class="book-item">
+                        <img src="love-gelato.png" alt="Love & Gelato" class="book-cover">
+                        <div class="book-info">
+                            <h3>FEB</h3>
+                            <p><strong>LOVE & GELATO</strong><br>by Jenna Evans Welch</p>
+                        </div>
+                    </div>
+
+                    <div class="book-item">
+                        <img src="great expect.png" alt="Great Expectations" class="book-cover">
+                        <div class="book-info">
+                            <h3>MARCH</h3>
+                            <p><strong>GREAT EXPECTATIONS</strong><br>by Charles Dickens</p>
+                        </div>
+                    </div>
+
+                    <div class="book-item">
+                        <img src="botm.png" alt="Better Than The Movies" class="book-cover">
+                        <div class="book-info">
+                            <h3>APRIL</h3>
+                            <p><strong>BETTER THAN THE MOVIES</strong><br>by Lynn Painter</p>
+                        </div>
+                    </div>
+
+                    <div class="book-item">
+                        <img src="little-women.png" alt="Little Women" class="book-cover">
+                        <div class="book-info">
+                            <h3>MAY</h3>
+                            <p><strong>LITTLE WOMEN</strong><br>by Louisa May Alcott</p>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+</body>
+</html>

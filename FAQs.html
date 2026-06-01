@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQs 〡 The Love Club</title>
+
+    <link rel="stylesheet" href="Nav.css">
+
+    <style>
+        html, body {
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            background-color: #FBECD5;
+            overflow: hidden;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* FAQ CONTAINER */
+        .faq-container {
+            max-width: 900px;
+            margin: auto;
+            padding: 0 20px;
+            text-align: center;
+            box-sizing: border-box;
+            width: 100%;
+        }
+
+        .faq-title {
+            font-family: 'Peace Sans', sans-serif;
+            font-size: 4.8rem;
+            color: #8B5A44;
+            margin-top: 0;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        .faq-subtitle {
+            font-family: monospace;
+            font-size: 0.95rem;
+            color: #8B5A44;
+            max-width: 750px;
+            margin: 0 auto 35px auto;
+            line-height: 1.6;
+        }
+
+        /* INFO BLOCKS */
+        .info-blocks-container {
+            max-width: 850px;
+            margin: 0 auto;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Each FAQ question item */
+        .info-block {
+            border-bottom: 1.5px solid #8B5A44;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+
+        /* TOGGLE & CONTENT */
+        .toggle-btn {
+            width: 100%;
+            background: none;
+            border: none;
+            outline: none;
+            padding: 15px 0 8px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            
+            font-family: monospace;
+            color: #8B5A44;
+            font-size: 20px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .plus-icon {
+            font-size: 24px;
+        }
+
+        .toggle-text {
+            display: none;
+            font-family: monospace;
+            text-align: justify;
+            color: #8B5A44;
+            font-size: 16px;
+            line-height: 1.5;
+            padding: 10px 0;
+        }
+
+        .toggle-text.show {
+            display: block;
+        }
+
+
+    @media (max-width: 1024px) {
+        .faq-title { font-size: 4rem; }
+    }
+
+    @media (max-width: 768px) {
+        html, body { height: auto; overflow: auto; }
+        .faq-container { padding: 0 24px 40px; }
+        .faq-title { font-size: 3.2rem; margin-bottom: 8px; }
+        .faq-subtitle { font-size: 0.9rem; margin-bottom: 28px; }
+        .toggle-btn { font-size: 17px; }
+    }
+
+    @media (max-width: 600px) {
+        .faq-container { padding: 0 16px 36px; }
+        .faq-title { font-size: 2.6rem; }
+        .faq-subtitle { font-size: 0.85rem; margin-bottom: 22px; }
+        .toggle-btn { font-size: 15px; letter-spacing: 0.5px; }
+        .toggle-text { font-size: 14px; }
+        .plus-icon { font-size: 20px; }
+    }
+
+    @media (max-width: 430px) {
+        .faq-title { font-size: 2.1rem; }
+        .faq-subtitle { font-size: 0.8rem; }
+        .toggle-btn { font-size: 13px; padding: 12px 0 6px 0; }
+        .toggle-text { font-size: 13px; }
+    }
+
+    @media (max-width: 360px) {
+        .faq-title { font-size: 1.8rem; }
+        .toggle-btn { font-size: 12px; }
+        .toggle-text { font-size: 12px; }
+    }
+        </style>
+    </head>
+    <body>
+        
+        <nav class="navbar">
+            <div class="nav-left">
+                <a href="About.html">ABOUT</a>
+                <a href="Archives.html">ARCHIVES</a>
+                <a href="Registration.html">REGISTRATION</a>
+            </div>
+
+            <div class="nav-logo">
+                <a href="About.html">The Love Club</a>
+            </div>
+
+            <div class="nav-right">
+                <a href="Faqs.html" class="active-link">FAQs</a>
+                <div class="nav-socials">
+                    <a href="https://www.instagram.com/theloveclubph__" target="_blank" class="icon-link">
+                        <img src="ig.png" alt="Instagram">
+                    </a>
+                    <a href="https://www.tiktok.com/@theloveclubph__" target="_blank" class="icon-link">
+                        <img src="tiktok.png" alt="TikTok" class="tiktok-icon">
+                    </a>
+                </div>
+                <a href="Contact.html" class="contact-btn">CONTACT</a>
+            </div>
+        </nav>
+
+        <main class="faq-container">
+            <h1 class="faq-title">Frequently Asked Q's</h1>
+            <p class="faq-subtitle">
+                We’ve gathered the most common questions about our gatherings, workshops, and community to help you get started. 
+                If you need anything else, please don't hesitate to reach out to us.
+            </p>
+
+            <div class="info-blocks-container">
+                <div class="info-block">
+                    <button class="toggle-btn">
+                        HOW DOES MEMBERSHIP WORK?
+                        <span class="plus-icon">+</span>
+                    </button>
+                    <p class="toggle-text">
+                        Joining TLC is <b>free</b> for <b>everyone</b>, allowing you to participate in our community and attend gatherings. For those looking for a more curated experience, we also offer two paid membership tiers—<b>The Page Turner</b> and <b>The Ultimate Bookish</b>—which provide additional perks like digital kits, physical book deliveries, and guaranteed event seating.
+                    </p>
+                </div>
+
+                <div class="info-block">
+                    <button class="toggle-btn">
+                        HOW DO I JOIN MONTHLY GATHERINGS?
+                        <span class="plus-icon">+</span>
+                    </button>
+                    <p class="toggle-text">
+                        After registering, you will receive an invite to our group chat where you'll have access to our regular updates. You can then sign up for individual events, such as our brunches or picnics, through the registration links provided for each session.
+                    </p>
+                </div>
+
+                <div class="info-block">
+                    <button class="toggle-btn">
+                        ARE THE MATERIALS PROVIDED FOR THE WORKSHOPS AND CRAFT-SESSIONS?
+                        <span class="plus-icon">+</span>
+                    </button>
+                    <p class="toggle-text">
+                        Yes, we provide the essential supplies for all our activities, including floral arrangements and craft projects. You are also welcome to bring your own favorite tools or stationery if you’d like to personalize your creations further.
+                    </p>
+                </div>
+
+                <div class="info-block">
+                    <button class="toggle-btn">
+                        DO I HAVE TO FINISH THE BOOK BEFORE ATTENDING DISCUSSIONS?
+                        <span class="plus-icon">+</span>
+                    </button>
+                    <p class="toggle-text">
+                        You don’t have to! While the conversation will involve spoilers and deep dives into the plot, you are welcome to join us for the food and company even if you are still mid-chapter.
+                    </p>
+                </div>
+
+            </div>
+        </main>
+
+        <script>
+            const toggleButtons = document.querySelectorAll('.toggle-btn');
+
+            toggleButtons.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const textParagraph = this.nextElementSibling;
+                    const icon = this.querySelector('.plus-icon');
+
+                    textParagraph.classList.toggle('show');
+
+                    if (textParagraph.classList.contains('show')) {
+                        icon.textContent = '−';
+                        setTimeout(() => {
+                            textParagraph.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                        }, 50);
+                    } else {
+                        icon.textContent = '+';
+                    }
+                });
+            });
+        </script>
+
+</body>
+</html>

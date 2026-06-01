@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABOUT 〡 The Love Club</title>
+    
+    <link rel="stylesheet" href="Nav.css">
+
+    <style>
+
+        body {
+            background-color: #fcfcfc;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* LANDING SECTION */
+        .landing-container {
+            width: 100%;
+            min-height: 100vh; 
+            background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('landing-photo.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            flex-direction: column;
+            justify-content: center; 
+            align-items: center;
+            text-align: center;
+            padding: 65px 40px 100px 40px;
+            box-sizing: border-box;
+        }
+
+        /*MAIL STICKER*/
+        @keyframes floatingAnimation {
+            0% { transform: translateY(0px); } /*original position*/
+            50% { transform: translateY(-15px); } /*middle position*/
+            100% { transform: translateY(0px); } /*last position*/
+        }
+
+        .sticker {
+            width: 115px;            
+            height: auto;
+            margin-bottom: 25px;
+            margin-top: -90px; 
+            display: block; 
+            animation: floatingAnimation 4.5s ease-in-out infinite; 
+        }
+
+        .heading-text {
+            font-family: 'Peace Sans', sans-serif;
+            color: #ffffff;
+            font-size: 80px;         
+            text-transform: uppercase;
+            line-height: 1.05;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .divider-line {
+            width: 850px;
+            height: 8px;
+            background-color: #e5828d;
+            margin: 35px 0;
+            border: none;
+            border-radius: 4px;
+        }
+
+        .description-text {
+            font-family: monospace;
+            color: #ffffff;
+            font-size: 24px;         
+            max-width: 950px;        
+            line-height: 1.6;
+            margin-bottom: 35px;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+        }
+
+        .quote-text {
+            font-family: monospace;
+            color: #ffffff;
+            font-style: italic;
+            font-size: 22px;         
+            line-height: 1.5;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+        }
+
+        .quote-author {
+            display: block;
+            font-style: normal;
+            font-size: 18px;
+            margin-top: 10px;
+        }
+
+        /* ABOUT SECTION */
+        .about-section {
+            background-color: #f2ceca; 
+            width: 100%;
+            padding-bottom: 100px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .gingham-ticker {
+            width: 100%;
+            height: 55px;
+            background-image: url('gingham-bg.png');
+            background-repeat: repeat-x;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            border-bottom: 2px solid rgba(139, 90, 68, 0.15);
+            margin-bottom: 30px;
+        }
+
+        .ticker-track {
+            white-space: nowrap;
+            display: flex;
+        }
+
+        .ticker-track span {
+            font-family: 'monospace';
+            color: #e5828d;
+            font-size: 22px;
+            letter-spacing: 1px;
+            padding-left: 20px;
+        }
+
+        .about-content-container {
+            max-width: 1300px;
+            width: 100%;
+            padding: 0 40px;
+            display: grid;
+            grid-template-columns: 1.2fr 1fr; 
+            gap: 60px;
+            align-items: center;
+            box-sizing: border-box;
+        }
+
+        .about-photo-wrapper {
+            width: 100%;
+            max-width: 580px;
+            justify-self: start;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .about-photo {
+            width: 700px;
+            height: auto;
+            display: block;
+        }
+
+        .about-text-wrapper {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .about-heading {
+            font-family: 'Peace Sans', sans-serif;
+            color: #8B5A44;
+            font-size: 80px;
+            text-transform: none;
+            margin-bottom: 25px;
+            line-height: 1;
+        }
+
+        .about-description {
+            font-family: monospace;
+            color: #8B5A44;
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 40px;
+            text-align: justify;
+        }
+
+        .info-blocks-container {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .info-block {
+            border-bottom: 1.5px solid #8B5A44;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+
+        .toggle-btn {
+            width: 100%;
+            background: none;
+            border: none;
+            outline: none;
+            padding: 15px 0 8px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            
+            font-family: monospace;
+            color: #8B5A44;
+            font-size: 20px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .plus-icon {
+            font-size: 24px;
+        }
+
+        .toggle-text {
+            display: none; 
+            font-family: monospace;
+            text-align: justify;
+            color: #8B5A44;
+            font-size: 16px;
+            line-height: 1.5;
+            padding: 10px 0;
+        }
+
+        .toggle-text.show {
+            display: block;
+        }
+
+        .expect-list {
+            margin-left: 20px;
+            padding-top: 5px;
+            list-style-type: disc;
+        }
+
+        .expect-list li {
+            margin-bottom: 8px;
+            font-family: monospace;
+            color: #8B5A44;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .expect-list strong {
+            color: #8B5A44;
+        }
+
+        .join-section {
+            width: 100%;
+            min-height: 180px; 
+            background-image: url('join-bg.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px;
+            box-sizing: border-box;
+        }
+
+        .join-heading {
+            font-family: 'Peace Sans', sans-serif;
+            color: #ffffff;
+            font-size: 80px; 
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            line-height: 1.1;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3); 
+        }
+
+        .membership-section {
+            background-color: #f2ceca; 
+            width: 100%;
+            padding: 80px 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        .membership-heading {
+            font-family: 'Peace Sans', sans-serif;
+            color: #8B5A44;
+            font-size: 72px;
+            line-height: 1;
+            margin-bottom: 25px;
+        }
+
+        .membership-subtext {
+            font-family: monospace;
+            color: #8B5A44;
+            font-size: 16px;
+            max-width: 850px;
+            line-height: 1.6;
+            margin-bottom: 60px;
+        }
+
+        .cards-container {
+            max-width: 1200px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            align-items: stretch; 
+        }
+
+        .membership-card {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .card-sticker {
+            height: 110px; 
+            width: auto;
+            margin-bottom: 25px;
+            object-fit: contain;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out; /*animates the hover effect*/
+        }
+
+        .card-sticker:hover {
+            transform: translateY(-15px); /*moves up position*/
+        }
+
+        .card-title {
+            font-family: 'Peace Sans', sans-serif;
+            color: #8B5A44;
+            font-size: 22px;
+            margin-bottom: 5px;
+            letter-spacing: 0.5px;
+            text-shadow: 1px 1px 2px rgba(139, 90, 68, 0.2);
+        }
+
+        .card-price {
+            font-family: monospace;
+            color: #8B5A44;
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .card-description {
+            font-family: monospace;
+            color: #8B5A44;
+            font-size: 15px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            text-align: justify; 
+            flex-grow: 1; 
+            min-height: 120px;
+        }
+
+        .register-btn {
+            text-decoration: none;
+            font-family: monospace; 
+            font-size: 18px;
+            font-weight: bold;
+            padding: 10px 32px;
+            border-radius: 25px;
+            border: 1.5px solid #000000;
+            color: #ffffff;
+            line-height: 1;
+            display: inline-block;
+            letter-spacing: 0.5px;
+            transition: background-color 0.2s ease;
+            margin-top: auto; 
+        }
+
+        .btn-pink { background-color: #f2b4b9; }
+        .btn-pink:hover { background-color: #e8a2a8; }
+
+        .btn-yellow { background-color: #e6d978; }
+        .btn-yellow:hover { background-color: #d6c860; }
+
+        .btn-blue { background-color: #92bce6; }
+        .btn-blue:hover { background-color: #7faad9; }
+
+        .little-women-section {
+            position: relative;
+            width: 100%;
+            background-color: #f7b1b6; 
+            background-image: url('stripes-bg.png');
+            background-repeat: repeat;
+            background-position: center;
+            display: flex;
+            flex-direction: column; 
+            box-sizing: border-box;
+        }
+
+        .botm-ticker {
+            background-color: #8B5A42;
+            color: #FFFFFF;
+            font-family: monospace;
+            text-align: center;
+            padding: 16px 0; 
+            font-size: 24px; 
+            letter-spacing: 2px;
+            width: 100%;
+            white-space: nowrap;
+            overflow: hidden;
+            flex-shrink: 0; 
+        }
+
+        .little-women-container {
+            display: flex;
+            flex-direction: row; 
+            width: 100%;
+            padding: 120px 10%;    
+            align-items: center; 
+            justify-content: center; 
+            gap: 80px; 
+            box-sizing: border-box;
+        }
+
+        .little-women-cover {
+            width: 420px; 
+            height: auto;
+            display: block;
+            flex-shrink: 0; 
+            border-radius: 6px;
+            transform: rotate(-3deg); 
+        }
+
+        .little-women-content {
+            max-width: 700px;
+            color: #8B5A42; 
+        }
+
+        .little-women-subtitle {
+            font-family: monospace;
+            font-size: 18px;
+            margin-bottom: 15px;
+            letter-spacing: 0.5px;
+        }
+
+        .little-women-title {
+            font-family: 'Peace Sans', sans-serif;
+            font-size: 64px;
+            line-height: 1.1;
+            margin: 0 0 20px 0;
+            letter-spacing: 1px;
+        }
+
+        .little-women-author {
+            font-family: monospace; 
+            font-size: 18px;
+            letter-spacing: 0px;
+            display: block; 
+            margin-top: 5px;
+        }
+
+        .little-women-description {
+            font-family: monospace;
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            text-align: justify;
+        }
+
+        .learn-more-btn {
+            text-decoration: none;
+            font-family: monospace; 
+            font-size: 18px;
+            font-weight: bold;
+            padding: 10px 32px;
+            border-radius: 25px;
+            border: 1.5px solid #000000;
+            background-color: #8B5A44;
+            color: #ffffff;
+            line-height: 1;
+            display: inline-block;
+            letter-spacing: 0.5px;
+            transition: background-color 0.2s ease;
+            cursor: pointer;
+        }
+
+        .learn-more-btn:hover {
+            background-color: #6E4430; 
+        }
+
+        .love-club-footer {
+            position: relative; 
+            width: 100%;
+            background-color: #f7b1b6; 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 25px 0; 
+            margin: 0; 
+            box-sizing: border-box;
+        }
+
+        .love-club-footer-border-box {
+            position: relative;
+            border: 1.5px dashed #d67a82; 
+            width: 94%; 
+            max-width: 1800px; 
+            padding: 15px; 
+            box-sizing: border-box;
+            overflow: visible; 
+        }
+
+        .love-club-footer-content {
+            text-align: center;
+            color: #d67a82; 
+            width: 100%;
+        }
+
+        .love-club-footer-brand {
+            font-family: 'Milestone', cursive;
+            font-size: 46px; 
+            margin: 0 0 2px 0;
+            font-weight: normal;
+            letter-spacing: 1px;
+            line-height: 1;
+        }
+
+        .love-club-footer-copyright {
+            font-family: monospace;
+            font-size: 13px;
+            margin: 0;
+        }
+
+        .love-club-sticker-ticket {
+            position: absolute;
+            left: 2%; 
+            width: 210px; 
+            top: -120px; 
+            height: auto;
+            transform: rotate(-12deg); 
+            z-index: 10; 
+        }
+
+        .love-club-sticker-todo {
+            position: absolute;
+            right: 2%; 
+            width: 210px; 
+            top: -150px; 
+            height: auto;
+            transform: rotate(8deg); 
+            z-index: 10; 
+        }
+
+        @media (max-width: 1024px) {
+            .heading-text { font-size: 64px; }
+            .divider-line { width: 90%; }
+            .description-text { font-size: 20px; }
+            .about-heading { font-size: 64px; }
+            .about-content-container { gap: 40px; padding: 0 30px; }
+            .about-photo { width: 560px; }
+            .join-heading { font-size: 64px; }
+            .membership-heading { font-size: 58px; }
+            .little-women-title { font-size: 52px; }
+            .little-women-container { padding: 80px 8%; gap: 60px; }
+            .little-women-cover { width: 340px; }
+            .love-club-sticker-ticket { width: 170px; top: -95px; }
+            .love-club-sticker-todo { width: 170px; top: -120px; }
+        }
+
+        @media (max-width: 900px) {
+            .heading-text { font-size: 54px; }
+            .description-text { font-size: 18px; }
+            .quote-text { font-size: 18px; }
+            .about-content-container {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                padding: 0 24px;
+            }
+            .about-photo-wrapper { max-width: 100%; justify-self: center; }
+            .about-photo { width: 100%; max-width: 500px; }
+            .about-heading { font-size: 56px; }
+            .cards-container { flex-direction: column; align-items: center; gap: 24px; }
+            .membership-card { width: 100%; max-width: 480px; }
+            .little-women-container {
+                flex-direction: column;
+                align-items: center;
+                padding: 60px 8%;
+                gap: 40px;
+                text-align: center;
+            }
+            .little-women-cover { width: 260px; }
+            .little-women-description { text-align: center; }
+            .little-women-content { max-width: 100%; }
+            .love-club-sticker-ticket { width: 140px; top: -80px; }
+            .love-club-sticker-todo { width: 140px; top: -100px; }
+        }
+
+        @media (max-width: 768px) {
+            .landing-container { padding: 65px 24px 80px; }
+            .heading-text { font-size: 44px; letter-spacing: 1px; }
+            .divider-line { height: 6px; margin: 24px 0; }
+            .description-text { font-size: 16px; }
+            .quote-text { font-size: 16px; }
+            .about-heading { font-size: 46px; }
+            .about-description { font-size: 15px; }
+            .toggle-btn { font-size: 17px; }
+            .join-heading { font-size: 48px; }
+            .membership-heading { font-size: 44px; }
+            .membership-subtext { font-size: 14px; }
+            .membership-section { padding: 60px 24px; }
+            .little-women-title { font-size: 40px; }
+            .little-women-description { font-size: 15px; }
+            .botm-ticker { font-size: 18px; }
+            .love-club-footer-brand { font-size: 36px; }
+            .love-club-sticker-ticket { width: 120px; top: -68px; }
+            .love-club-sticker-todo { width: 120px; top: -85px; }
+        }
+
+        @media (max-width: 600px) {
+            .heading-text { font-size: 36px; }
+            .sticker { width: 85px; margin-top: -60px; }
+            .divider-line { width: 100%; height: 5px; margin: 18px 0; }
+            .description-text { font-size: 14px; }
+            .quote-text { font-size: 14px; }
+            .quote-author { font-size: 13px; }
+            .gingham-ticker { height: 44px; }
+            .ticker-track span { font-size: 15px; }
+            .about-content-container { padding: 0 16px; }
+            .about-heading { font-size: 38px; }
+            .about-description { font-size: 14px; }
+            .toggle-btn { font-size: 15px; }
+            .join-section { padding: 28px 20px; min-height: 120px; }
+            .join-heading { font-size: 36px; letter-spacing: 1px; }
+            .membership-heading { font-size: 34px; }
+            .membership-subtext { font-size: 13px; margin-bottom: 36px; }
+            .membership-section { padding: 48px 16px; }
+            .card-sticker { height: 85px; }
+            .card-title { font-size: 18px; }
+            .card-description { font-size: 13px; }
+            .register-btn { font-size: 15px; padding: 9px 26px; }
+            .little-women-container { padding: 40px 6%; gap: 28px; }
+            .little-women-cover { width: 200px; }
+            .little-women-subtitle { font-size: 14px; }
+            .little-women-title { font-size: 32px; }
+            .little-women-author { font-size: 14px; }
+            .little-women-description { font-size: 13px; }
+            .learn-more-btn { font-size: 15px; padding: 9px 26px; }
+            .botm-ticker { font-size: 15px; padding: 12px 0; }
+            .love-club-footer-brand { font-size: 30px; }
+            .love-club-footer-copyright { font-size: 11px; }
+            .love-club-sticker-ticket { width: 95px; top: -54px; left: 1%; }
+            .love-club-sticker-todo { width: 95px; top: -68px; right: 1%; }
+        }
+
+        @media (max-width: 430px) {
+            .heading-text { font-size: 30px; }
+            .sticker { width: 70px; margin-top: -50px; margin-bottom: 16px; }
+            .description-text { font-size: 13px; }
+            .quote-text { font-size: 13px; }
+            .about-heading { font-size: 32px; }
+            .join-heading { font-size: 28px; }
+            .membership-heading { font-size: 28px; }
+            .little-women-cover { width: 160px; }
+            .little-women-title { font-size: 26px; }
+            .love-club-sticker-ticket { width: 78px; top: -44px; }
+            .love-club-sticker-todo { width: 78px; top: -55px; }
+        }
+
+        @media (max-width: 360px) {
+            .heading-text { font-size: 26px; }
+            .sticker { width: 60px; }
+            .about-heading { font-size: 28px; }
+            .join-heading { font-size: 24px; }
+            .membership-heading { font-size: 24px; }
+            .little-women-title { font-size: 22px; }
+            .little-women-cover { width: 140px; }
+            .love-club-footer-brand { font-size: 26px; }
+            .love-club-sticker-ticket { width: 65px; top: -36px; }
+            .love-club-sticker-todo { width: 65px; top: -46px; }
+        }
+
+
+            </style>
+        </head>
+        <body>
+
+            <nav class="navbar">
+                <div class="nav-left">
+                    <a href="About.html" class="active-link">ABOUT</a>
+                    <a href="Archives.html">ARCHIVES</a>
+                    <a href="Registration.html">REGISTRATION</a>
+                </div>
+
+                <div class="nav-logo">
+                    <a href="About.html">The Love Club</a>
+                </div>
+
+                <div class="nav-right">
+                    <a href="Faqs.html">FAQs</a>
+                    <div class="nav-socials">
+                        <a href="https://www.instagram.com/theloveclubph__" target="_blank" class="icon-link">
+                            <img src="ig.png" alt="Instagram">
+                        </a>
+                        <a href="https://www.tiktok.com/@theloveclubph__" target="_blank" class="icon-link">
+                            <img src="tiktok.png" alt="TikTok" class="tiktok-icon">
+                        </a>
+                    </div>
+                    <a href="Contact.html" class="contact-btn">CONTACT</a>
+                </div>
+            </nav>
+
+            <div class="landing-container">
+                <img src="mail-sticker.png" alt="Mail" class="sticker">
+                <h1 class="heading-text">Welcome,<br>Dear Readers!</h1>
+                <hr class="divider-line">
+                <p class="description-text">
+                    A cozy little corner for the romance lovers, book collectors, and readers who fall in love between the pages.
+                </p>
+                <p class="quote-text">
+                    "There is no friend as loyal as a book."
+                    <span class="quote-author">— Ernest Hemingway</span>
+                </p>
+            </div>
+
+            <section class="about-section">
+                <div class="gingham-ticker">
+                    <div class="ticker-track">
+                        <span>The Love Club ❤︎⁠ The Love Club ❤︎⁠ The Love Club ❤︎⁠ The Love Club ❤︎⁠ The Love Club ❤︎⁠ The Love Club ❤︎⁠ The Love Club ❤︎⁠ The Love Club ❤︎⁠ The Love Club ❤︎⁠ The Love Club ❤︎⁠</span>
+                    </div>
+                </div>
+
+                <div class="about-content-container">
+                    <div class="about-photo-wrapper">
+                        <img src="us-photo.png" alt="Our Community" class="about-photo">
+                    </div>
+
+                    <div class="about-text-wrapper">
+                        <h2 class="about-heading">About Us</h2>
+                        <p class="about-description">
+                            The Love Club is a community dedicated to the appreciation of literature and the art of book collecting. We provide a space for readers to engage in thoughtful discussion, share curated recommendations, and connect over a shared interest in romanticizing reading. Our focus is on fostering a consistent reading habit through monthly selections and organized community events.
+                        </p>
+
+                        <div class="info-blocks-container">
+                            <div class="info-block">
+                                <button class="toggle-btn">
+                                    <span>THE FOUNDER</span>
+                                    <span class="plus-icon">+</span>
+                                </button>
+                                <p class="toggle-text">
+                                    The Love Club was founded by <b>Ms. Anezka Jinn</b> as a sanctuary for the hopeless romantics and the dreamers. Born from a love for stories that make the heart ache and soar, this club is a dedicated space for those who find magic in the pages of a book.
+                                </p>
+                            </div>
+
+                            <div class="info-block">
+                                <button class="toggle-btn">
+                                    <span>WHAT TO EXPECT</span>
+                                    <span class="plus-icon">+</span>
+                                </button>
+                                <div class="toggle-text">
+                                    <p style="margin-bottom: 10px;">We’re so excited to have you! Here is a little glimpse of what to expect when you become a member of our community:</p>
+                                    <ul class="expect-list">
+                                        <li><strong>The Monthly Pick:</strong> A carefully selected book for us to dive into together every month.</li>
+                                        <li><strong>Curated Treats:</strong> Members-only reading kits, aesthetic digital guides, and sweet little surprises.</li>
+                                        <li><strong>Special Gatherings:</strong> Themed reading dates, afternoon picnics, and discussion nights about our current reads.</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="info-block">
+                                <button class="toggle-btn">
+                                    <span>COMMUNITY STANDARDS</span>
+                                    <span class="plus-icon">+</span>
+                                </button>
+                                <p class="toggle-text">
+                                    To keep our sanctuary safe and happy for all our members and future members, we simply ask that you lead with kindness and respect for every unique perspective shared. We maintain a no-pressure environment where you are always welcome regardless of your reading pace, ensuring our space remains a soft, supportive haven for everyone to open their hearts.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="join-section">
+                <h2 class="join-heading">JOIN OUR COMMUNITY!</h2>
+            </section>
+
+            <section class="membership-section">
+                <h2 class="membership-heading">Membership Selection</h2>
+                <p class="membership-subtext">
+                    Choose the journey that fits your reading life. Whether you’re here for the conversation or the full library experience, there’s a place for every reader in our community ❤︎
+                </p>
+
+                <div class="cards-container">
+                    <div class="membership-card">
+                        <img src="basic-sticker.png" alt="Basic Reader Sticker" class="card-sticker">
+                        <h3 class="card-title">THE BASIC READER</h3>
+                        <span class="card-price">free</span>
+                        <p class="card-description">
+                            Our free membership is the perfect way to read along with us. You'll receive our monthly digital guide with reading schedules and gain full access to our community chat and discussion nights.
+                        </p>
+                        <a href="Registration.html?tier=Basic Reader" class="register-btn btn-pink">REGISTER</a>
+                    </div>
+
+                    <div class="membership-card">
+                        <img src="page-sticker.png" alt="Page Turner Sticker" class="card-sticker">
+                        <h3 class="card-title">THE PAGE TURNER</h3>
+                        <span class="card-price">₱79/month</span>
+                        <p class="card-description">
+                            Step up your reading with a monthly digital reading log and exclusive voting power for our future picks. You also get guaranteed loading on all our reading events so your spot is always saved.
+                        </p>
+                        <a href="Registration.html?tier=Page Turner" class="register-btn btn-yellow">REGISTER</a>
+                    </div>
+
+                    <div class="membership-card">
+                        <img src="ult-sticker.png" alt="Ultimate Bookish Sticker" class="card-sticker">
+                        <h3 class="card-title">THE ULTIMATE BOOKISH</h3>
+                        <span class="card-price">₱149/month</span>
+                        <p class="card-description">
+                            Enjoy a physical book delivered to your door every month, wrapped with a seasonal surprise. This tier also includes exclusive access to our events, merchandise discounts, and more!
+                        </p>
+                        <a href="Registration.html?tier=Ultimate Bookish" class="register-btn btn-blue">REGISTER</a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="little-women-section">
+                <div class="botm-ticker">
+                    <span>Book of the Month ☻ Book of the Month ☻ Book of the Month ☻ Book of the Month ☻ Book of the Month ☻ Book of the Month ☻ Book of the Month ☻ Book of the Month Book of the Month ☻ Book of the Month ☻ Book of the Month ☻ </span>
+                </div>
+
+                <div class="little-women-container">
+                    <div class="little-women-cover-wrapper">
+                        <img src="little-women.png" alt="Little Women Book Cover" class="little-women-cover">
+                    </div>
+
+                    <div class="little-women-content">
+                        <p class="little-women-subtitle">[ The Love Club's Current Read ]</p>
+                        <h1 class="little-women-title">
+                            LITTLE WOMEN <span class="little-women-author">by Louisa May Alcott</span>
+                        </h1>
+                        <p class="little-women-description">
+                            The Love Club’s selection of <b>Louisa May Alcott’s Little Women</b> for the month of <b>May</b> is a poetic nod to both the season and the book’s enduring themes of growth and domestic warmth. As spring reaches its peak, the novel’s focus on the “blossoming” of the <b>four March sisters</b> <em>Meg, Jo, Beth, and Amy</em>–mirrors the natural world’s transition into full bloom.
+                        </p>
+                        <a href="https://www.goodreads.com/book/show/1934.Little_Women" target="_blank" class="little-women-btn-link">
+                            <button class="learn-more-btn">LEARN MORE</button>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <footer class="love-club-footer">
+                <div class="love-club-footer-border-box">
+                    <img src="ticket-sticker.png" alt="Book Club Babe Ticket" class="love-club-sticker-ticket">
+                    
+                    <div class="love-club-footer-content">
+                        <h2 class="love-club-footer-brand">The Love Club</h2>
+                        <p class="love-club-footer-copyright">© 2025 The Love Club. All Rights Reserved.</p>
+                    </div>
+                    
+                    <img src="todo-sticker.png" alt="Read More Books To Do List" class="love-club-sticker-todo">
+                </div>
+            </footer>
+
+            <script>
+                const toggleButtons = document.querySelectorAll('.toggle-btn');
+
+                toggleButtons.forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const textParagraph = this.nextElementSibling;
+                        const icon = this.querySelector('.plus-icon');
+
+                        textParagraph.classList.toggle('show'); /*adds 'show', if absent, removes*/
+
+                        if (textParagraph.classList.contains('show')) {
+                            icon.textContent = '−'; /*button becomes minus sign*/
+                            
+                            setTimeout(() => {
+                                textParagraph.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                            }, 50); 
+                        } else {
+                            icon.textContent = '+'; /*button becomes plus sign*/
+                        }
+                    });
+                });
+            </script>
+
+</body>
+</html>
